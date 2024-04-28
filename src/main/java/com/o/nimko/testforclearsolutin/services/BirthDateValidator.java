@@ -16,7 +16,7 @@ public class BirthDateValidator implements
     ConstraintValidator<BirthDate, LocalDate> {
 
   @Value("${person.age.min}")
-  private int minAge = 18;
+  private int minAge;
 
   @Override
   public boolean isValid(LocalDate localDate,
@@ -25,10 +25,10 @@ public class BirthDateValidator implements
   }
 
   private boolean validateAge(LocalDate birthDate) {
-    log.info("Min age is {}", minAge);
     var now = now();
     var age = now.getYear() - birthDate.getYear();
-    if (age == (minAge - 1)) {
+    log.debug("Age is {}", age);
+    if (age == minAge) {
       return now.getMonth().getValue() >  birthDate.getMonth().getValue() ||
           (now.getMonth().getValue() ==  birthDate.getMonth().getValue() && now.getDayOfMonth() >= birthDate.getDayOfMonth());
     }

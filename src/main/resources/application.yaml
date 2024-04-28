@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: test-for-clear-solution
+    version: 0.0.1
+
+person:
+  age:
+    min: '${MIN_AGE:18}'
+
+springdoc:
+  swagger:
+    ui:
+      path: /
+
+
