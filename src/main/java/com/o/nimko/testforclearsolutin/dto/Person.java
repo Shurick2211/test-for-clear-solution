@@ -14,13 +14,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Person {
 
-  @NotNull
   @Email
   private String email;
-  @NotNull
   @NotBlank
   private String firstName;
-  @NotNull
   @NotBlank
   private String lastName;
   @NotNull
